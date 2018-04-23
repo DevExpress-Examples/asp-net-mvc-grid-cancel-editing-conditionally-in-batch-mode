@@ -1,0 +1,23 @@
+@Html.DevExpress().GridView(settings=>{
+    settings.Name = "gridView";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "GridViewPartial" };
+
+    settings.KeyFieldName = "ID";
+    settings.SettingsEditing.Mode = GridViewEditingMode.Batch;
+
+    settings.CustomJSProperties += (s, e) => {
+        var clientData = new Dictionary<int,object>();
+        var grid = s as MVCxGridView;
+        for (int i = 0; i < grid.VisibleRowCount; i++) {
+            var rowValues = grid.GetRowValues(i, new string[] {"ID", "ServerSideExample"}) as object[];
+            
+            var key = Convert.ToInt32(rowValues[0]);
+            if (key % 2 != 0)
+                clientData.Add(key, "ServerSideExample");            
+        }
+        e.Properties["cp_cellsToDisable"] = clientData;
+    };
+    
+    
+    settings.ClientSideEvents.BatchEditStartEditing = "OnBatchStartEdit";
+}).Bind(Model).GetHtml()
