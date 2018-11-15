@@ -1,3 +1,10 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [HomeController.cs](./CS/BatchEditCancel/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/BatchEditCancel/Controllers/HomeController.vb))
+* [GridViewPartial.cshtml](./CS/BatchEditCancel/Views/Home/GridViewPartial.cshtml)
+* **[Index.cshtml](./CS/BatchEditCancel/Views/Home/Index.cshtml)**
+<!-- default file list end -->
 # GridView - Batch Editing - How to cancel editing or disable the editor conditionally
 
 
