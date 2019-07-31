@@ -1,4 +1,5 @@
 
+
 <!-- default file list -->
 *Files to look at*:
 
@@ -36,8 +37,15 @@ settings.CustomJSProperties += (s, e) => {
     e.Properties["cp_cellsToDisable"] = clientData;
 };
 ```
+**UPDATED:**
+Starting with v18.1, editors provide the client-side [SetReadOnly](https://docs.devexpress.com/AspNet/js-ASPxClientEdit.SetReadOnly%28readOnly%29) method. To disable an editor conditionally, use the following code:
 
-
+ ```js 
+  if (e.focusedColumn.fieldName == "ClientSideReadOnly") {
+         editor = s.GetEditor(e.focusedColumn.fieldName); 
+         editor.SetReadOnly(!condition);
+  }
+```
 <p><strong><br />See Also:</strong><br /><a href="https://www.devexpress.com/Support/Center/p/T115144">ASPxGridView - Batch Editing - How to cancel editing or disable the editor conditionally</a></p>
 
 <br/>

@@ -9,6 +9,11 @@
         if (e.focusedColumn.fieldName == "ClientSideCancel") //cancel example
             if (!condition) e.cancel = true;
 
+        if (e.focusedColumn.fieldName == "ClientSideReadOnly") {
+            editor = s.GetEditor(e.focusedColumn.fieldName); //disable example
+            editor.SetReadOnly(!condition);
+        }
+
         //server preprocessing
         if (typeof s.cp_cellsToDisable[key] != "undefined" && s.cp_cellsToDisable[key] == e.focusedColumn.fieldName)
             e.cancel = true;
