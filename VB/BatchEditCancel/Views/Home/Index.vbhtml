@@ -10,7 +10,7 @@
             if (!condition) e.cancel = true;
 
         if (e.focusedColumn.fieldName == "ClientSideReadOnly") {
-            editor = s.GetEditor(e.focusedColumn.fieldName); //disable example
+            editor = s.GetEditor(e.focusedColumn.fieldName); // make read-only example
             editor.SetReadOnly(!condition);
         }
 

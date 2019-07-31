@@ -38,6 +38,7 @@ settings.CustomJSProperties += (s, e) => {
 };
 ```
 **UPDATED:**
+
 Starting with v18.1, editors provide the client-side [SetReadOnly](https://docs.devexpress.com/AspNet/js-ASPxClientEdit.SetReadOnly%28readOnly%29) method. To disable an editor conditionally, use the following code:
 
  ```js 
