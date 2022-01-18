@@ -6,6 +6,9 @@
 
         var condition = key % 2 == 0;
 
+        if (e.focusedColumn.fieldName == "ID")
+            e.cancel = true;
+
         if (e.focusedColumn.fieldName == "ClientSideCancel") //cancel example
             if (!condition) e.cancel = true;
 

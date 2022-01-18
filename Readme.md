@@ -1,31 +1,33 @@
-<!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/128549632/18.1.11%2B)
-[![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T115116)
-[![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
-<!-- default badges end -->
+# GridView for MVC - How to cancel editing conditionally in batch edit mode
 
-
-<!-- default file list -->
-*Files to look at*:
-
-* [HomeController.cs](./CS/BatchEditCancel/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/BatchEditCancel/Controllers/HomeController.vb))
-* [GridViewPartial.cshtml](./CS/BatchEditCancel/Views/Home/GridViewPartial.cshtml)
-* **[Index.cshtml](./CS/BatchEditCancel/Views/Home/Index.cshtml)**
-<!-- default file list end -->
-# GridView - Batch Editing - How to cancel editing or disable the editor conditionally
 <!-- run online -->
 **[[Run Online]](https://codecentral.devexpress.com/t115116/)**
 <!-- run online end -->
 
+You can cancel grid data editing in batch edit mode either on the client or server side.
 
-<p>This example demonstrates how to cancel editing conditionally for the grid when batch editing is in use. It is possible to execute your logic either on the client or server side for a complex business model.<br />Then, handle the grid's client-side <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebASPxGridViewScriptsASPxClientGridView_BatchEditStartEditingtopic">BatchEditStartEditing</a> event to cancel the edit operation using the e.cancel property:</p>
+In this example, users can modify data only in even rows (except the **ID** column). Every column is protected in different way, listed below.
 
+On the client, handle handle the [BatchEditStartEditing](https://docs.devexpress.com/AspNet/js-ASPxClientGridView.BatchEditStartEditing) event and set its [e.cancel](https://docs.devexpress.com/AspNet/js-ASPxClientCancelEventArgs.cancel) property to `true` to cancel the editing:
 
 ```js
-if (condition) e.cancel = true;
+function OnBatchStartEdit(s, e) {
+    if (condition) e.cancel = true;
+}
+```
 
-``` 
-<p> The custom server-side logic can be executed in the CustomJSProperties event handler:</p>
+Another way to cancel editing is to use an editor's [SetReadOnly](https://docs.devexpress.com/AspNet/js-ASPxClientEdit.SetReadOnly%28readOnly%29) method. The code sample below demonstrates how to disable an editor conditionally:
+
+ ```js
+function OnBatchStartEdit(s, e) {
+    if (condition) {
+        editor = s.GetEditor(e.focusedColumn.fieldName); 
+        editor.SetReadOnly(true);
+  }
+```
+
+
+You can implement a custom server-side logic in the [CustomJSProperties](https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.GridViewSettings.CustomJSProperties) event handler:
 
 
 ```cs
@@ -42,18 +44,13 @@ settings.CustomJSProperties += (s, e) => {
     e.Properties["cp_cellsToDisable"] = clientData;
 };
 ```
-**UPDATED:**
 
-Starting with v18.1, editors provide the client-side [SetReadOnly](https://docs.devexpress.com/AspNet/js-ASPxClientEdit.SetReadOnly%28readOnly%29) method. To disable an editor conditionally, use the following code:
+## Files to Look At
+<!-- default file list -->
+- [Index.cshtml](./CS/BatchEditCancel/Views/Home/Index.cshtml)
+- [GridViewPartial.cshtml](./CS/BatchEditCancel/Views/Home/GridViewPartial.cshtml)
+<!-- default file list end -->
 
- ```js 
-  if (e.focusedColumn.fieldName == "ClientSideReadOnly") {
-         editor = s.GetEditor(e.focusedColumn.fieldName); 
-         editor.SetReadOnly(!condition);
-  }
-```
-<p><strong><br />See Also:</strong><br /><a href="https://www.devexpress.com/Support/Center/p/T115144">ASPxGridView - Batch Editing - How to cancel editing or disable the editor conditionally</a></p>
+## More Examples
 
-<br/>
-
-
+- [GridView for Web Forms - Cancel editor/row editing in the client FocusedCellChanging event in batch edit mode](https://github.com/DevExpress-Examples/aspxgridview-batch-edit-cancel-editor-row-editing-in-the-client-focusedcellchanging-event-t496531)
