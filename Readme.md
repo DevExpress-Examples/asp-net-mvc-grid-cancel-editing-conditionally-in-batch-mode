@@ -9,11 +9,11 @@
 **[[Run Online]](https://codecentral.devexpress.com/t115116/)**
 <!-- run online end -->
 
-You can cancel grid data editing in batch edit mode either on the client or server side.
+You can cancel grid data editing in batch edit mode on the client or server side.
 
-In this example, users can modify data only in even rows (except the **ID** column). Every column is protected in different way, listed below.
+In this example, users can modify data only in even rows (except the **ID** column). Each column is protected in a different way, listed below.
 
-On the client, handle handle the [BatchEditStartEditing](https://docs.devexpress.com/AspNet/js-ASPxClientGridView.BatchEditStartEditing) event and set its [e.cancel](https://docs.devexpress.com/AspNet/js-ASPxClientCancelEventArgs.cancel) property to `true` to cancel the editing:
+On the client, handle the [BatchEditStartEditing](https://docs.devexpress.com/AspNet/js-ASPxClientGridView.BatchEditStartEditing) event and set its [e.cancel](https://docs.devexpress.com/AspNet/js-ASPxClientCancelEventArgs.cancel) property to `true` to cancel editing:
 
 ```js
 function OnBatchStartEdit(s, e) {
@@ -32,7 +32,7 @@ function OnBatchStartEdit(s, e) {
 ```
 
 
-You can implement a custom server-side logic in the [CustomJSProperties](https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.GridViewSettings.CustomJSProperties) event handler:
+You can implement custom server-side logic in the [CustomJSProperties](https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.GridViewSettings.CustomJSProperties) event handler:
 
 
 ```cs
