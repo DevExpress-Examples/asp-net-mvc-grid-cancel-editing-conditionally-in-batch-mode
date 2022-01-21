@@ -6,7 +6,7 @@
 # GridView for MVC - How to cancel editing conditionally in batch edit mode
 
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t115116/)**
+**[[Run Online]](https://codecentral.devexpress.com/128549632/)**
 <!-- run online end -->
 
 You can cancel grid data editing in batch edit mode on the client or server side.
