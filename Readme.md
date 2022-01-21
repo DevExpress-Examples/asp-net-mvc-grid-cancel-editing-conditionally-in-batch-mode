@@ -13,7 +13,7 @@
 <!-- default file list end -->
 # GridView - Batch Editing - How to cancel editing or disable the editor conditionally
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t115116/)**
+**[[Run Online]](https://codecentral.devexpress.com/128549632/)**
 <!-- run online end -->
 
 
