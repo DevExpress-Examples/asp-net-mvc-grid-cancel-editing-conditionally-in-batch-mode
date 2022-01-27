@@ -51,10 +51,9 @@ settings.CustomJSProperties += (s, e) => {
 ```
 
 ## Files to Look At
-<!-- default file list -->
+
 - [Index.cshtml](./CS/BatchEditCancel/Views/Home/Index.cshtml)
 - [GridViewPartial.cshtml](./CS/BatchEditCancel/Views/Home/GridViewPartial.cshtml)
-<!-- default file list end -->
 
 ## More Examples
 
