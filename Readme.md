@@ -16,7 +16,7 @@ In this example, users can modify data only in even rows (except the **ID** colu
 
 ## Implementation Details
 
-On the client, handle the [`BatchEditStartEditing`](https://docs.devexpress.com/AspNet/js-ASPxClientGridView.BatchEditStartEditing) event and set its [`e.cancel`](https://docs.devexpress.com/AspNet/js-ASPxClientCancelEventArgs.cancel) property to `true` to cancel editing:
+On the client, handle the [BatchEditStartEditing](https://docs.devexpress.com/AspNet/js-ASPxClientGridView.BatchEditStartEditing) event and set its [e.cancel](https://docs.devexpress.com/AspNet/js-ASPxClientCancelEventArgs.cancel) property to `true` to cancel editing:
 
 ```js
 function OnBatchStartEdit(s, e) {
@@ -24,7 +24,7 @@ function OnBatchStartEdit(s, e) {
 }
 ```
 
-Another way to cancel editing is to use an editor's [`SetReadOnly`](https://docs.devexpress.com/AspNet/js-ASPxClientEdit.SetReadOnly%28readOnly%29) method. The code sample below demonstrates how to disable an editor conditionally:
+Another way to cancel editing is to use an editor's [SetReadOnly](https://docs.devexpress.com/AspNet/js-ASPxClientEdit.SetReadOnly%28readOnly%29) method. The code sample below demonstrates how to disable an editor conditionally:
 
 ```js
 function OnBatchStartEdit(s, e) {
@@ -34,7 +34,7 @@ function OnBatchStartEdit(s, e) {
  }
 ```
 
-You can implement custom server-side logic in the [`CustomJSProperties`](https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.GridViewSettings.CustomJSProperties) event handler:
+You can implement custom server-side logic in the [CustomJSProperties](https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.GridViewSettings.CustomJSProperties) event handler:
 
 ```cs
 settings.CustomJSProperties += (s, e) => {
