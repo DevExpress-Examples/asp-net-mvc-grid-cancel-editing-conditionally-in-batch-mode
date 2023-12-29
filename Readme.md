@@ -12,9 +12,6 @@
 * **[Index.cshtml](./CS/BatchEditCancel/Views/Home/Index.cshtml)**
 <!-- default file list end -->
 # GridView - Batch Editing - How to cancel editing or disable the editor conditionally
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/128549632/)**
-<!-- run online end -->
 
 
 <p>This example demonstrates how to cancel editing conditionally for the grid when batch editing is in use. It is possible to execute your logic either on the client or server side for a complex business model.<br />Then, handle the grid's client-side <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebASPxGridViewScriptsASPxClientGridView_BatchEditStartEditingtopic">BatchEditStartEditing</a> event to cancel the edit operation using the e.cancel property:</p>
