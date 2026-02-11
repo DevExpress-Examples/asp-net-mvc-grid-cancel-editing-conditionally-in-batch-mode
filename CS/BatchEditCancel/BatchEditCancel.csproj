@@ -203,7 +203,6 @@
     <Content Include="Scripts\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\knockout-3.0.0.js" />
     <Content Include="packages.config" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Views\Home\GridViewPartial.cshtml" />
   </ItemGroup>
